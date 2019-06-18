@@ -8,7 +8,7 @@ class WeChat(object):
         self.secret = secret
         self.agentid = agentid
 
-    # 获取企业微信的 access_token
+    # get access_token
     def access_token(self):
         url_arg = '/cgi-bin/gettoken?corpid={id}&corpsecret={crt}'.format(
             id=self.corpid, crt=self.secret)
@@ -17,7 +17,7 @@ class WeChat(object):
         text = response.text
         self.token = json.loads(text)['access_token']
 
-    # 构建消息格式
+    # construct message
     def messages(self, msg):
         values = {
             "touser": '@all',
@@ -31,7 +31,7 @@ class WeChat(object):
         # python 2
         self.msg = json.dumps(values)
 
-    # 发送信息
+    # sending message
     def send_message(self, msg):
         self.access_token()
         self.messages(msg)
@@ -51,7 +51,6 @@ corpid = "ww2baed54bbccc5f0c"
 secret = "7K7XwCgZlj01W0jh7gqiJjvVKaSUOgQbm5rKf1MyJRU"
 agentid = "1000002"
 msg = "python test"
-
 wechat = WeChat(corpid, secret, agentid)
 wechat.send_message(msg)
 '''
