@@ -70,7 +70,6 @@ class ShortTermStrategy_TradingWithUSDT:
                 l = hour.low
         return Price(h, l, o, c, hours[0].date)
 
-
     def do(self, currentPrice, currentTime):
         # return positive means buy, negative mean sell. 0 means do nothing
         if currentTime < 0 or currentTime > 23:
@@ -226,6 +225,10 @@ class ShortTermStrategy_TradingWithUSDT:
 
     def updatePerformance(self, performance):
         self.performance.append(performance)
+        logging.info("performance: %s", self.performance)
 
     def supplementBalance(self, amount):
         self.balance += amount
+
+    def reduceBalance(self, amount):
+        self.balance -= amount

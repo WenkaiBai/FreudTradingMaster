@@ -154,7 +154,7 @@ class ShortTermStrategy:
 
     def do(self, currentPrice):
         logging.info("current price: %s", currentPrice)
-        if currentPrice == None:
+        if currentPrice is None:
             return Decision('Watching', 0)
 
         # return positive means buy, negative mean sell. 0 means do nothing
@@ -180,9 +180,9 @@ class ShortTermStrategy:
             if (currentPrice.close > top and
                     (len(self.account) == 0 or self.account[-1] < 0) and
                     Utility.average(self.dailyPrices, 25) > Utility.average(self.dailyPrices, 100)):
-                logging.info("break through 20 days highest and previous investigation is bad!!, current balance: %s" , self.balance)
+                logging.info("break through 20 days highest and previous investigation is bad!!, current balance: %s", self.balance)
                 #make break
-                spend = self.balance * 0.25
+                spend = self.balance * 0.23
                 self.positions.append(Position(currentPrice.close, spend))
                 self.balance -= spend
                 return Decision('First Position', spend)
@@ -192,7 +192,7 @@ class ShortTermStrategy:
                     Utility.average(self.dailyPrices, 25) > Utility.average(self.dailyPrices, 100)):
                 logging.info("break through 55 days highest, current balance: %s" , self.balance)
                 #make break
-                spend = self.balance * 0.25
+                spend = self.balance * 0.23
                 self.positions.append(Position(currentPrice.close, spend))
                 self.balance -= spend
                 return Decision('First Position', spend)

@@ -1,5 +1,6 @@
 import json
 import requests
+import logging
 
 class WeChat(object):
     def __init__(self, corpid = "ww2baed54bbccc5f0c",
@@ -35,6 +36,7 @@ class WeChat(object):
 
     # sending message
     def send_message(self, msg):
+        logging.info(msg)
         self.access_token()
         self.messages(msg)
 
