@@ -14,10 +14,7 @@ class ProductionMarket:
         logging.debug("history data: %s", prices)
         self.commandCenter = ShortTermStrategy(prices)
 
-        corpid = "ww2baed54bbccc5f0c"
-        secret = "7K7XwCgZlj01W0jh7gqiJjvVKaSUOgQbm5rKf1MyJRU"
-        agentid = "1000002"
-        self.wechat = WeChat(corpid, secret, agentid)
+        self.wechat = WeChat()
 
     def action(self):
         current = self.dataRetriever.retrieveLastHourData()

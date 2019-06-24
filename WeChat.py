@@ -2,7 +2,9 @@ import json
 import requests
 
 class WeChat(object):
-    def __init__(self, corpid, secret, agentid):
+    def __init__(self, corpid = "ww2baed54bbccc5f0c",
+                 secret = "7K7XwCgZlj01W0jh7gqiJjvVKaSUOgQbm5rKf1MyJRU",
+                 agentid = "1000002"):
         self.url = "https://qyapi.weixin.qq.com"
         self.corpid = corpid
         self.secret = secret
