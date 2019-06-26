@@ -36,8 +36,8 @@ class ProductionMarket_TradingWithUSDT:
             position = decision.Operation
 
             self.wechat.send_message("Start buying posision: " + str(decision))
-            base, item = Binance.buy(self.base, self.item, position.spend)
-            self.wechat.send_message("Finish buying base: " + base)
+            base, item = Binance.buy(self.item, self.base, position.spend)
+            self.wechat.send_message("Finish buying base: " + str(base))
             self.commandCenter.reduceBalance(base)
             position.spend = base
             position.amount = item
@@ -53,7 +53,7 @@ class ProductionMarket_TradingWithUSDT:
                 baseAmount += position.spend
 
             self.wechat.send_message("Start selling itemAmount: " + str(itemAmount))
-            base, item = Binance.sell(self.base, self.item, itemAmount)
+            base, item = Binance.sell(self.item, self.base, itemAmount)
             self.wechat.send_message("Finish selling base: " + str(base))
             self.commandCenter.supplementBalance(base)
             self.commandCenter.updatePerformance(base - baseAmount) # how much usdt we earn after selling
@@ -75,8 +75,11 @@ def main():
 
     market = ProductionMarket_TradingWithUSDT()
 
+    # init run
+    market.action()
+
     scheduler = BlockingScheduler()
-    scheduler.add_job(tick, 'interval', [market], seconds=3)
+    scheduler.add_job(tick, 'interval', [market], seconds=3600)
 
     try:
         scheduler.start()
