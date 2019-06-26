@@ -17,6 +17,8 @@ class Binance:
 
         # check if binance account has enough baseAmount
         balance = Binance.balance(base, restClient)
+        logging.debug("Current balance is %s", balance)
+
         if balance == 0.0:
             # no enough balance, cannot proceed buying
             logging.error("there is no balance in account!")
@@ -27,15 +29,17 @@ class Binance:
 
         # get current price
         price = Binance.current_price(item, base, restClient)
+        logging.debug("Current price is %s", price)
 
         # create order and get order id
         logging.info('we are going to buy when price is ' + str(price))
-        order = restClient.new_order(item+base, "BUY", "LIMIT", "GTC", baseAmount/price, 10000)
+        order = restClient.new_order(item+base, "BUY", "LIMIT", "GTC", baseAmount/price, 30)
 
         # check order status until it finish and get total bought item
         while True:
             order = restClient.query_order(symbol=item+base, order_id=order.id, orig_client_order_id=order.client_order_id)
             if order.status == 'PARTIALLY_FILLED' or order.status == 'NEW':
+                logging.debug("Current order.status is %s", order.status)
                 time.sleep(2) #query order status every 2 seconds
                 continue
 

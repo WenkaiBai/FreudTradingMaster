@@ -1,10 +1,6 @@
-from binance.client import BinanceRESTAPI, BinanceWebSocketAPI
+from TradingPlatform.Binance import Binance
+import logging
 
-
-a = [1, 2, 3]
-b = a
-
-a=[]
-
-print (b)
+logging.basicConfig(level=logging.DEBUG)
+Binance.buy('BNB', 'USDT', 1)
 
