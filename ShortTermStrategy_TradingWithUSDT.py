@@ -12,7 +12,7 @@ class ShortTermStrategy_TradingWithUSDT:
         self.outTimeRange = outTimeRange
         self.longtermTimeRange = longtermTimeRange
 
-        self.balance = 4.0 #USDT
+        self.balance = 100.0 #USDT
         self.positions = []
         self.N = self.initN()
         self.today = []

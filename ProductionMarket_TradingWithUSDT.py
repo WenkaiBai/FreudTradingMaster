@@ -1,16 +1,14 @@
-from Entity.Price import Price
-from LongtermStrategy import  LongtermStrategy
-from ShortTermStrategy import ShortTermStrategy
+
 from ShortTermStrategy_TradingWithUSDT import ShortTermStrategy_TradingWithUSDT
 from Data.DataRetriever import DataRetriever
 import logging
-import datetime
+import sys
 from apscheduler.schedulers.blocking import BlockingScheduler
 from WeChat import WeChat
 from TradingPlatform.Binance import Binance
 
-class ProductionMarket_TradingWithUSDT:
 
+class ProductionMarket_TradingWithUSDT:
 
     def __init__(self):
         self.dataRetriever = DataRetriever()
@@ -33,7 +31,7 @@ class ProductionMarket_TradingWithUSDT:
         self.handleDecision(decision)
 
     def handleDecision(self, decision):
-        if decision.Type.contains('Buy'):
+        if 'Buy' in decision.Type:
             # Buying position
             position = decision.Operation
 
@@ -45,7 +43,7 @@ class ProductionMarket_TradingWithUSDT:
             position.amount = item
             logging.info("new Position is %s", position)
             self.commandCenter.updatePosition(position)
-        else:
+        elif 'Sell' in decision.Type:
             # Selling position
             positions = decision.Operation
             baseAmount = 0.0
@@ -59,21 +57,26 @@ class ProductionMarket_TradingWithUSDT:
             self.wechat.send_message("Finish selling base: " + str(base))
             self.commandCenter.supplementBalance(base)
             self.commandCenter.updatePerformance(base - baseAmount) # how much usdt we earn after selling
-
+        else:
+            logging.info("Just watching.....")
 
 def tick(market):
     market.action()
 
 
 def main():
-    logging.basicConfig(level=logging.DEBUG,
-                        format='%(asctime)s  %(filename)s : %(levelname)s  %(message)s',
-                        datefmt  = '%Y-%m-%d %A %H:%M:%S')
+    root = logging.getLogger()
+    root.setLevel(logging.DEBUG)
+    handler = logging.StreamHandler(sys.stdout)
+    handler.setLevel(logging.DEBUG)
+    formatter = logging.Formatter('%(asctime)s - %(name)s - %(levelname)s - %(message)s')
+    handler.setFormatter(formatter)
+    root.addHandler(handler)
 
     market = ProductionMarket_TradingWithUSDT()
 
     scheduler = BlockingScheduler()
-    scheduler.add_job(tick, 'interval', [market], seconds=3600)
+    scheduler.add_job(tick, 'interval', [market], seconds=3)
 
     try:
         scheduler.start()

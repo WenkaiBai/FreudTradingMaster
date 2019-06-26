@@ -6,7 +6,7 @@ import logging
 import datetime
 
 def main():
-	logging.basicConfig(level=logging.ERROR)
+	logging.basicConfig(level=logging.DEBUG)
 
 	start = '2016-01-01'
 	now = datetime.datetime(2018, 4, 1)
