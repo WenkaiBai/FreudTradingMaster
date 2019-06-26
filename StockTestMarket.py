@@ -7,19 +7,19 @@ import datetime
 
 
 def main():
-	logging.basicConfig(level=logging.DEBUG)
+    logging.basicConfig(level=logging.DEBUG)
 
-	start = '2016-01-01'
-	now = datetime.datetime(2018, 4, 1)
-	totalBenefit = 0
-	for i in range(1):
-		now = now + datetime.timedelta(days=1)
-		result = simulate(start, now)
-		benefit = sum(result)
-		totalBenefit += benefit
-		if benefit < 0:
-			logging.error(result)
-	logging.error('average benfit: %s', totalBenefit/365)
+    start = '2016-01-01'
+    now = datetime.datetime(2018, 4, 1)
+    totalBenefit = 0
+    for i in range(1):
+        now = now + datetime.timedelta(days=1)
+        result = simulate(start, now)
+        benefit = sum(result)
+        totalBenefit += benefit
+        if benefit < 0:
+            logging.error(result)
+    logging.error('average benfit: %s', totalBenefit/365)
 
 
 def simulate(start, now):
