@@ -3,7 +3,7 @@ import time
 import logging
 
 class Binance:
-    lotSize = {'BTC' : 6, 'BNB' : 2}    
+    lotSize = {'BTC': 6, 'BNB': 2}
     # item is coin type we want to buy, ex: BTC
     # base is coin we use to buy, ex: USDT
     # base amount is how much base coins we are going to use to buy item coin
@@ -31,11 +31,17 @@ class Binance:
         print("Current price is %s" % price)
         # create order and get order id
         logging.info('we are going to buy when price is ' + str(price))
-        order = restClient.new_order(item+base, "BUY", "LIMIT", "GTC", round(baseAmount/price, Binance.lotSize[item]), 10000)
+        order = restClient.new_order(item+base, "BUY", "LIMIT", "GTC", round(baseAmount/price, Binance.lotSize[item]), price)
+        logging.info('order information %s ', str(order.__dict__))
 
         # check order status until it finish and get total bought item
         while True:
-            order = restClient.query_order(symbol=item+base, order_id=order.id, orig_client_order_id=order.client_order_id)
+            try:
+                order = restClient.query_order(symbol=item+base, order_id=order.id, orig_client_order_id=order.client_order_id)
+            except Exception as e:
+                logging.error(e.message)
+                continue
+
             if order.status == 'PARTIALLY_FILLED' or order.status == 'NEW':
                 logging.debug("Current order.status is %s", order.status)
                 print("Current order.status is %s" % order.status)
@@ -71,11 +77,17 @@ class Binance:
 
         # create order and get order id
         logging.info('we are going to sell when price is ' + str(price))
-        order = restClient.new_order(item+base, "SELL", "LIMIT", "GTC", round(itemAmount, Binance.lotSize[item]), 50)
-
+        logging.info('selling item amount %s ', str(itemAmount))
+        order = restClient.new_order(item+base, "SELL", "LIMIT", "GTC", round(itemAmount, Binance.lotSize[item]), 20000)
+        logging.info('order information %s ', str(order.__dict__))
         # check order status until it finish and get total bought item
         while True:
-            order = restClient.query_order(symbol=item+base, order_id=order.id, orig_client_order_id=order.client_order_id)
+            try:
+                order = restClient.query_order(symbol=item+base, order_id=order.id, orig_client_order_id=order.client_order_id)
+            except Exception as e:
+                logging.error(e.message)
+                continue
+
             if order.status == 'PARTIALLY_FILLED' or order.status == 'NEW':
                 time.sleep(2) #query order status every 2 seconds
                 continue
