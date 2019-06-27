@@ -18,7 +18,7 @@ class Utility:
     @classmethod
     def top(self, prices, timeRange):
         top = 0
-        for price in prices[len(prices) - timeRange: -1]:
+        for price in prices[len(prices) - timeRange: len(prices)]:
             if top < price.high:
                 top = price.high
         logging.debug("top: %s", top)
@@ -27,7 +27,7 @@ class Utility:
     @classmethod
     def bottom(self, prices, timeRange):
         bottom = sys.maxsize
-        for price in prices[len(prices) - timeRange: -1]:
+        for price in prices[len(prices) - timeRange: len(prices)]:
             if bottom > price.low:
                 bottom = price.low
 
@@ -36,4 +36,4 @@ class Utility:
 
     @classmethod
     def average(self, prices, timeRange):
-        return sum([p.close for p in prices[len(prices) - timeRange: -1]]) / timeRange
+        return sum([p.close for p in prices[len(prices) - timeRange: len(prices)]]) / timeRange

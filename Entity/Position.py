@@ -12,3 +12,6 @@ class Position:
 
     def __str__(self):
         return 'buyingPrice: %s, spend: %s, amount: %s, index: %s' % (self.buyingPrice, self.spend, self.amount, self.index)
+
+    def __repr__(self):
+        return 'buyingPrice: %s, spend: %s, amount: %s, index: %s' % (self.buyingPrice, self.spend, self.amount, self.index)

@@ -12,7 +12,7 @@ class ShortTermStrategy_TradingWithUSDT:
         self.outTimeRange = outTimeRange
         self.longtermTimeRange = longtermTimeRange
 
-        self.balance = 100.0 #USDT
+        self.balance = 300.0 #USDT
         self.positions = []
         self.N = self.initN()
         self.today = []
@@ -175,7 +175,7 @@ class ShortTermStrategy_TradingWithUSDT:
                 logging.error("Bankruptcy!")
                 return Decision('Bankruptcy', 0)
 
-            top = Utility.top(self.dailyPrices, self.inTimeRange)
+            top = max(Utility.top(self.dailyPrices, self.inTimeRange), Utility.top(self.today, len(self.today)))
             if (currentPrice.close > top and
                     (len(self.performance) == 0 or self.performance[-1] < 0) and
                     Utility.average(self.dailyPrices, 25) > Utility.average(self.dailyPrices, 100)):
@@ -185,7 +185,7 @@ class ShortTermStrategy_TradingWithUSDT:
                 self.positions.append(Position(currentPrice.close, spend, 0))
                 return Decision('Buy First Position', self.positions[-1])
 
-            top = Utility.top(self.dailyPrices, self.longtermTimeRange)
+            top = max(Utility.top(self.dailyPrices, self.longtermTimeRange), Utility.top(self.today, len(self.today)))
             if (currentPrice.close > top and
                     Utility.average(self.dailyPrices, 25) > Utility.average(self.dailyPrices, 100)):
                 logging.info("break through 55 days highest, current balance: %s" , self.balance)

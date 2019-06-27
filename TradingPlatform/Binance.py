@@ -78,7 +78,7 @@ class Binance:
         # create order and get order id
         logging.info('we are going to sell when price is ' + str(price))
         logging.info('selling item amount %s ', str(itemAmount))
-        order = restClient.new_order(item+base, "SELL", "LIMIT", "GTC", round(itemAmount, Binance.lotSize[item]), 20000)
+        order = restClient.new_order(item+base, "SELL", "LIMIT", "GTC", round(itemAmount, Binance.lotSize[item]), price)
         logging.info('order information %s ', str(order.__dict__))
         # check order status until it finish and get total bought item
         while True:
