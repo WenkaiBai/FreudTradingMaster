@@ -2,8 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="7facc8e6-f8d3-4c61-9327-3cad2da7763b" name="Default" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/BinanceAPITest.py" beforeDir="false" afterPath="$PROJECT_DIR$/BinanceAPITest.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TradingPlatform/Binance.py" beforeDir="false" afterPath="$PROJECT_DIR$/TradingPlatform/Binance.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -98,8 +98,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/ProductionMarket_TradingWithUSDT.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="238">
-              <caret line="38" column="35" selection-start-line="38" selection-start-column="35" selection-end-line="38" selection-end-column="35" />
+            <state relative-caret-position="374">
+              <caret line="67" selection-start-line="67" selection-end-line="73" selection-end-column="28" />
               <folding>
                 <element signature="e#1#80#0" expanded="true" />
               </folding>
@@ -107,11 +107,14 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/BinanceAPITest.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="68">
-              <caret line="4" column="14" lean-forward="true" selection-start-line="4" selection-start-column="14" selection-end-line="4" selection-end-column="14" />
+            <state relative-caret-position="238">
+              <caret line="14" column="21" selection-start-line="14" selection-start-column="21" selection-end-line="14" selection-end-column="21" />
+              <folding>
+                <element signature="e#0#43#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -125,11 +128,11 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/TradingPlatform/Binance.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="590">
-              <caret line="80" column="119" selection-start-line="80" selection-start-column="119" selection-end-line="80" selection-end-column="119" />
+            <state relative-caret-position="250">
+              <caret line="62" column="43" selection-start-line="62" selection-start-column="43" selection-end-line="62" selection-end-column="43" />
               <folding>
                 <element signature="e#0#41#0" expanded="true" />
               </folding>
@@ -152,8 +155,8 @@
       <find>spend</find>
       <find>base</find>
       <find>balance</find>
-      <find>we are going to buy when price i</find>
       <find>we are going to buy when price</find>
+      <find>we are going to buy when price i</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -169,8 +172,8 @@
         <option value="$PROJECT_DIR$/TestMarket.py" />
         <option value="$PROJECT_DIR$/ProductionMarket.py" />
         <option value="$PROJECT_DIR$/ProductionMarket_TradingWithUSDT.py" />
-        <option value="$PROJECT_DIR$/BinanceAPITest.py" />
         <option value="$PROJECT_DIR$/TradingPlatform/Binance.py" />
+        <option value="$PROJECT_DIR$/BinanceAPITest.py" />
       </list>
     </option>
   </component>
@@ -253,7 +256,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Python.ProductionMarket_TradingWithUSDT">
+  <component name="RunManager" selected="Python.BinanceAPITest">
     <configuration name="Binance" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <module name="FreudTradingMaster" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -324,8 +327,8 @@
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="Python.ProductionMarket_TradingWithUSDT" />
         <item itemvalue="Python.BinanceAPITest" />
+        <item itemvalue="Python.ProductionMarket_TradingWithUSDT" />
         <item itemvalue="Python.Binance" />
       </list>
     </recent_temporary>
@@ -347,12 +350,12 @@
     <frame x="-8" y="-8" width="1936" height="1176" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.16491044" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.16491044" />
       <window_info id="Structure" order="1" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.32981783" />
-      <window_info anchor="bottom" id="Run" order="2" visible="true" weight="0.30105466" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.30105466" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -465,16 +468,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/ProductionMarket_TradingWithUSDT.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="238">
-          <caret line="38" column="35" selection-start-line="38" selection-start-column="35" selection-end-line="38" selection-end-column="35" />
-          <folding>
-            <element signature="e#1#80#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/ShortTermStrategy_TradingWithUSDT.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="493">
@@ -507,19 +500,32 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/BinanceAPITest.py">
+    <entry file="file://$PROJECT_DIR$/ProductionMarket_TradingWithUSDT.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="68">
-          <caret line="4" column="14" lean-forward="true" selection-start-line="4" selection-start-column="14" selection-end-line="4" selection-end-column="14" />
+        <state relative-caret-position="374">
+          <caret line="67" selection-start-line="67" selection-end-line="73" selection-end-column="28" />
+          <folding>
+            <element signature="e#1#80#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/TradingPlatform/Binance.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="590">
-          <caret line="80" column="119" selection-start-line="80" selection-start-column="119" selection-end-line="80" selection-end-column="119" />
+        <state relative-caret-position="250">
+          <caret line="62" column="43" selection-start-line="62" selection-start-column="43" selection-end-line="62" selection-end-column="43" />
           <folding>
             <element signature="e#0#41#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/BinanceAPITest.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="238">
+          <caret line="14" column="21" selection-start-line="14" selection-start-column="21" selection-end-line="14" selection-end-column="21" />
+          <folding>
+            <element signature="e#0#43#0" expanded="true" />
           </folding>
         </state>
       </provider>
